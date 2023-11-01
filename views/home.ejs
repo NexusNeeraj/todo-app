@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <title><%=locals.title%></title>
+    <link rel="stylesheet" href="/css/todo.css" />
+  </head>
+  <body>
+    <div id="todo-app-container">
+      <div id="app-name__heading">
+        <h1>TODO App</h1>
+      </div>
+      <div id="form">
+        <form action="/create-description" method="POST">
+          <div id="todo-app__description">
+            <label>DESCRIPTION</label>
+            <br />
+            <input
+              type="text"
+              name="Description"
+              placeholder="What do you need to do?"
+              required
+            />
+          </div>
+          <div id="date-and-category__description">
+            <div id="category__description">
+              <label for="category-select">CATEGORY</label>
+              <br />
+              <select name="category" id="category-select">
+                <option value="">Choose a category</option>
+                <option value="personal">Personal</option>
+                <option value="work">Work</option>
+                <option value="school">School</option>
+                <option value="cleaning">Cleaning</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div id="date__description">
+              <label>
+                Due Date
+                <br />
+                <input type="date" name="dueDate" />
+              </label>
+            </div>
+          </div>
+          <div id="tasks__details">
+            <div id="add-tasks">
+              <div class="add-task" type="button">
+                <i class="fa-solid fa-plus"></i>
+                <button> ADD TASKS </button>
+              </div>
+            </div>
+            <div id="delete-tasks">
+              <!-- <div class="delete-task" type="button"> -->
+                <i class="fa-regular fa-trash-can"></i>
+                <a class="delete-link" href="javascript:void(0);">
+                 DELETE TASKS
+                 </a>
+                <!-- </div> -->
+            </div>
+          </div>
+        </form>
+      </div>
+      <div id="todo-list-container">
+        <ul>
+          <% for(let i of todo_list_item) {%>
+          <li class="todo-list-item">
+            <div id="todo-list-item-details">
+              <div id="description-date-details">
+                <input class="todo-checkbox"
+                  type="checkbox"
+                  name="checkbox"
+                  value="<%= i._id %>"
+                />
+                <label"><%= i.Description %></label>
+                <p>
+                  <i class="fa-solid fa-calendar-days"></i>
+                  <%= i.dueDate %>
+                </p>
+              </div>
+              <div id="category-details">
+                <p><%= i.category %></p>
+              </div>
+            </div>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/ed46e4bddb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="/js/home.js"></script>
+  </body>
+</html>

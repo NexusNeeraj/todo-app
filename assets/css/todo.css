@@ -1,0 +1,143 @@
+body{
+      margin: 0;
+      background-color: #818198;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#todo-app-container{
+      background-color: whitesmoke;
+      width: 40%;
+      margin-top: 5vh;
+      margin-left: 30%;
+      padding-bottom: 5%;
+      align-content:center;
+      border-radius: 2px;
+}
+
+#app-name__heading{
+      text-align: center;
+      border-bottom: 1px solid rgb(167, 163, 163);
+      margin-top: 1vh;
+      margin-left: 1vw;
+      /* max-height: 6vh; */
+}
+#todo-app__description{
+      text-align: left;
+      margin-left: 1vw;
+      border-bottom: 1px solid rgb(167, 163, 163);
+      /* max-height: 8vh; */
+      /* margin-bottom: 5px; */
+}
+
+#todo-app__description label{
+      line-height: 4vh;
+}
+
+#todo-app__description input{
+      width: 100%;
+      border-style: none;
+      height: 4vh;
+}
+
+#date-and-category__description{
+      text-align: left;
+      margin-left: 1vw;
+      border-bottom: 1px solid rgb(167, 163, 163);
+      
+}
+
+
+#category__description{
+      display: inline-block;
+      vertical-align: middle;
+      width: 50%;
+}
+
+#date__description{
+      display: inline-block;
+      padding: 1rem 1rem;
+      vertical-align: middle;
+}
+
+
+#tasks__details{
+      text-align: center;
+      margin-top: 2vh;
+      margin-left: 1vw;
+      border-bottom: 1px solid rgb(167, 163, 163);
+      padding-bottom: 3vh;
+}
+
+#add-tasks{
+      display: inline-block;
+      padding: 1rem 1rem;
+      vertical-align: middle;
+      background-color: rgb(66, 65, 65);
+      color: white;
+      border-radius: 2px;
+      cursor: pointer;
+}
+
+.add-task button{
+      background-color: rgb(66, 65, 65);
+      border-style: none;
+      outline-style: none;
+      color: white;
+      font-size: 1.1rem;
+}
+
+#delete-tasks{
+      display: inline-block;
+      padding: 1rem 1rem;
+      vertical-align: middle;
+      background-color: rgb(223, 26, 26);
+      color: white;
+      border-radius: 2px;
+      cursor: pointer;
+}
+
+#delete-tasks a{
+      color: white;
+      text-decoration: none;
+}
+
+/* #todo-list-container{
+      margin-left: 1vw;
+}*/
+
+.todo-list-item{
+      list-style-type: none;
+      
+}
+
+
+#todo-list-item-details{
+      /* text-align: left; */
+      margin-left: -25px;
+      margin-top: 2vh;
+      border-bottom: 1px solid rgb(167, 163, 163);
+}
+
+#description-date-details{
+      display: inline-block;
+      width: 70%;
+}
+
+#description-date-details p{
+      margin-left: 1.7vw;
+      font-size: .8rem;
+}
+
+#category-details{
+      min-height: 4vh;
+      max-height: 5vh;
+      background-color: rgb(209, 119, 64);
+      text-align: center;
+      display: inline-block;
+      padding: 0rem 2rem 1rem 2rem;
+      margin-bottom: 2vh;
+      position: relative;
+      top: -7px;
+      /* vertical-align: middle; */
+      color: white;
+}
