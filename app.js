@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
-const port = 5000;
+require('dotenv').config();
+const port = process.env.PORT || 4000;
 
-const db = require('./config/mongoose');
+const connectDB = require('./config/db');
 const TodoItem = require('./models/todoItem');
+
+connectDB();//connecting to database
 
 const app = express();
 
@@ -54,6 +57,7 @@ app.get('/', function(req, res){
 });
 
 
+
 app.post('/create-description', function(req, res){
       
       // todoList.push(req.body);
@@ -77,20 +81,20 @@ app.post('/create-description', function(req, res){
 
 app.get('/delete', async (req, res) => {
       try {
-        // Get the item ID to delete from the query parameters.
-        const itemId = req.query.items;
-        console.log(itemId);
+        // Get the item IDs to delete from the query parameters.
+        const itemIds = req.query.items.split(',');
+        console.log(itemIds);
 
-        const deletedItem = await TodoItem.findByIdAndRemove(itemId);
-    
-        if (deletedItem) {
-          // Item has been successfully deleted.
-          return res.redirect('/'); // Redirect to the updated to-do list or a different page.
+        for(const itemId of itemIds) {
+            const deletedItem = await TodoItem.findByIdAndRemove(itemId);
+            if(!deletedItem){
+                  // handle the case where the item with the given ID is not found.
+                  console.error(`Item with ID ${itemId} not found`);
+                  return res.status(404).send(`Item with ID ${itemId} not found.`);
+            }
         }
-        else {
-          // Handle the case where the item with the given ID is not found.
-          return res.status(404).send('Item not found');
-        }
+        // all items have been successfully deleted.
+        return res.redirect('/'); //redirecting to updated todolist
       } catch (err) {
         console.error('Error deleting item:', err);
         return res.status(500).send('Error deleting item');
